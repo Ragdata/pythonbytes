@@ -14,7 +14,6 @@ import typer
 from rich.console import Console
 
 from pythonbytes import config
-from pythonbytes.logbytes import logger
 
 app = typer.Typer()
 console = Console()
