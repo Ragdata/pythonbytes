@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+####################################################################
+# setup.py
+####################################################################
+# Author:       Ragdata
+# Date:         28/06/2025
+# License:      MIT License
+# Repository:	https://github.com/Ragdata/.dotfiles
+# Copyright:    Copyright © 2024 Redeyed Technologies
+####################################################################
+
+from setuptools import setup, find_packages
+
+setup(
+    name="pythonbytes",
+    description="A proprietary, modular Python library that is the basis for all of my Python packages.",
+	version="0.1.0",
+	author="Ragdata",
+	author_email="ragdata@ragdata.dev",
+    packages=find_packages(include=["pythonbytes", "pythonbytes.*"]),
+    install_requires=["typer>=0.9.0"],
+    entry_points={}
+)

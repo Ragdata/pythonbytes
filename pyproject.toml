@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools >= 80.9.0", "wheel >= 0.45.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonbytes"
+dynamic = ["version"]
+description = ""
+readme = "README.md"
+authors = [
+	{ name = "Darren 'Ragdata' Poulton", email = "ragdata@ragdata.dev" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+keywords = []
+classifiers = []
+dependencies = [
+	"Typer >= 0.16.0"
+]
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+
+
+[project.urls]
+Repository = "https://github.com/ragdata/pythonbytes.git"
+Issues = "https://github.com/ragdata/pythonbytes/issues"
+

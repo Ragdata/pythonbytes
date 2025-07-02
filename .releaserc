@@ -1,18 +1,18 @@
 extends: relman.base.yml
 name: PythonBytes
-description: A proprietary, modular library which is the basis of most of my projects.
-version: 0.1.0a1
+description: A proprietary Python library which I use in my projects
+version: v0.1.0
 copyright: Copyright © 2025 Redeyed Technologies
-website: https://ragdata.github.io/labstacks
-repo_url: https://github.com/ragdata/labstacks
+website: https://ragdata.github.io/dotfiles
+repo_url: https://github.com/ragdata/dotfiles
 license: MIT License
 license_url: https://www.gnu.org/licenses/mit.html
 license_file: LICENSE
 keywords:
-    - docker
-    - docker-compose
-    - self-hosted
-    - open-source
+    - python
+    - library
+    - modules
+    - reusable
     - redeyed-au
     - ragdata
 authors:
@@ -23,7 +23,7 @@ authors:
       location: Brisbane, Australia
       affiliation: Redeyed Technologies
 release_notes: |
-    - Pre-Release of Labstacks Files.
+    - Pre-Release of Dotfiles.
     - This is a work in progress and not yet ready for production use.
     - The source is not yet fully tested and may contain bugs.
     - The source is not yet fully documented and may be missing features.
