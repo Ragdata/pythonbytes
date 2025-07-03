@@ -13,7 +13,7 @@ import typer
 
 from rich.console import Console
 
-from pythonbytes import config
+from pythonbytes.config import *
 
 app = typer.Typer()
 console = Console()
@@ -57,7 +57,7 @@ class Message():
 		self.get_msg()
 
 		if self.err:
-			self.msg = typer.style(self.msg, fg=config.COLOR_ERROR, bold=True)
+			self.msg = typer.style(self.msg, fg=COLOR_ERROR, bold=True)
 		elif self.color:
 			self.msg = typer.style(self.msg, fg=self.color)
 
@@ -141,9 +141,9 @@ def echoDebug(): lambda msg: Message(msg, color="white", prefix="DEBUG: ").print
 #
 # TERMINAL MESSAGE ALIASES
 #
-def echoError(): lambda msg: Message(msg, color=config.COLOR_ERROR, prefix=config.SYMBOL_ERROR + " ERROR: ", err=True).print()
-def echoWarning(): lambda msg: Message(msg, color=config.COLOR_WARNING, prefix=config.SYMBOL_WARNING + " WARNING: ").print()
-def echoInfo(): lambda msg: Message(msg, color=config.COLOR_INFO, prefix=config.SYMBOL_INFO + " INFO: ").print()
-def echoSuccess(): lambda msg: Message(msg, color=config.COLOR_SUCCESS, prefix=config.SYMBOL_SUCCESS + " SUCCESS: ").print()
-def echoTip(): lambda msg: Message(msg, color=config.COLOR_TIP, prefix=config.SYMBOL_TIP + " TIP: ").print()
-def echoImportant(): lambda msg: Message(msg, color=config.COLOR_IMPORTANT, prefix=config.SYMBOL_IMPORTANT + " IMPORTANT: ").print()
+def echoError(): lambda msg: Message(msg, color=COLOR_ERROR, prefix=SYMBOL_ERROR + " ERROR: ", err=True).print()
+def echoWarning(): lambda msg: Message(msg, color=COLOR_WARNING, prefix=SYMBOL_WARNING + " WARNING: ").print()
+def echoInfo(): lambda msg: Message(msg, color=COLOR_INFO, prefix=SYMBOL_INFO + " INFO: ").print()
+def echoSuccess(): lambda msg: Message(msg, color=COLOR_SUCCESS, prefix=SYMBOL_SUCCESS + " SUCCESS: ").print()
+def echoTip(): lambda msg: Message(msg, color=COLOR_TIP, prefix=SYMBOL_TIP + " TIP: ").print()
+def echoImportant(): lambda msg: Message(msg, color=COLOR_IMPORTANT, prefix=SYMBOL_IMPORTANT + " IMPORTANT: ").print()
