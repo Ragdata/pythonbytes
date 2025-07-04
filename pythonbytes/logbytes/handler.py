@@ -49,7 +49,7 @@ class Handler(logging.Handler):
 		# Create new instance
 		instance = super().__new__(cls)
 		instance.__init__(name, level)
-		cls._instances[name] = instance
+
 		return instance
 
 
@@ -65,7 +65,8 @@ class Handler(logging.Handler):
 			return
 
 		# Initialize the parent logging.Handler
-		super().__init__(level)
+		instance = super().__init__(level)
+		self._instances[name] = instance
 
 		# Set up the handler's name and level
 		self.name = name
@@ -81,6 +82,10 @@ class Handler(logging.Handler):
 
 		:return: A Handler instance.
 		"""
+		# Return existing instance
+		if name in self._instances:
+			return self._instances[name]
+		# Create new instance
 		return self.__new__(self.__class__, name, level)
 
 
@@ -88,8 +93,15 @@ class Handler(logging.Handler):
 		"""
 		Get a Handler instance (explicit multiton access method).
 
+		:param name:  The name of the handler.
+		:param level: The logging level (default = logging.NOTSET).
+
 		:return: A Handler instance.
 		"""
+		# Return existing instance
+		if name in self._instances:
+			return self._instances[name]
+		# Create new instance
 		return self.__new__(self.__class__, name, level)
 
 
@@ -113,8 +125,10 @@ class StreamHandler(Handler):
 			return
 		if stream is None:
 			stream = sys.stdout
-		Handler.__init__(self, name, level)
+
 		self.stream = stream if stream else None
+
+		self._instances[name] = Handler.__init__(self, name, level)
 
 
 class FileHandler(StreamHandler):
@@ -145,6 +159,8 @@ class FileHandler(StreamHandler):
 		self.delay = delay
 		self._builtin_open = open
 
+		self._instances[name] = Handler.__init__(self, name, logging.NOTSET)
+
 
 class _StderrHandler(StreamHandler):
 	"""
@@ -152,8 +168,22 @@ class _StderrHandler(StreamHandler):
 	"""
 
 	def __init__(self, name: str, level: int = logging.NOTSET):
-		Handler.__init__(self, name, level)
+		"""
+		Initialize the _StderrHandler class.
+
+		:param name:  The name of the handler.
+		:param level: The logging level (default = logging.NOTSET).
+		"""
+		# Prevent re-initialization of existing instances
+		if name in self._instances:
+			return
+		# Create & save the new instance
+		self._instances[name] = Handler.__init__(self, name, level)
 
 	@property
 	def stream(self):
+		"""
+		Get the stream for this handler.
+		"""
+		# Return the standard error stream
 		return sys.stderr

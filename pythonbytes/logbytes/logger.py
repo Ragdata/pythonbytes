@@ -16,6 +16,7 @@ import logging
 from typing import Optional
 
 from pythonbytes.config import *
+from pythonbytes.logbytes.handler import *
 
 
 #---------------------------------------------------------------------------
@@ -45,7 +46,7 @@ class Logger(logging.Logger):
 		# Create new instance
 		instance = super().__new__(cls)
 		instance.__init__(name, level)
-		cls._instances[name] = instance
+
 		return instance
 
 
@@ -61,14 +62,15 @@ class Logger(logging.Logger):
 			return
 
 		# Initialize the parent logging.Logger
-		super().__init__(name, level)
+		instance = super().__init__(name, level)
+		self._instances[name] = instance
 
 		# Set up handler if none exists
-		if not self.hasHandlers():
-			handler = logging.StreamHandler()
-			handler.setLevel(level)
-			self.addHandler(handler)
-			self.setLevel(level)
+		# if not self.hasHandlers():
+		# 	handler = logging.StreamHandler()
+		# 	handler.setLevel(level)
+		# 	self.addHandler(handler)
+		# 	self.setLevel(level)
 
 
 	def __call__(self, name: str, level: int = logging.INFO) -> Logger:
@@ -80,6 +82,10 @@ class Logger(logging.Logger):
 
 		:return: A Logger instance.
 		"""
+		# Return existing instance
+		if name in self._instances:
+			return self._instances[name]
+		# Create new instance
 		return self.__new__(self.__class__, name, level)
 
 
@@ -92,6 +98,10 @@ class Logger(logging.Logger):
 
 		:return: A Logger instance.
 		"""
+		# Return existing instance
+		if name in self._instances:
+			return self._instances[name]
+		# Create new instance
 		return self(name, level)
 
 
