@@ -2,6 +2,7 @@
 **/.archive
 **/.backlog
 **/.backburn
+**/.pdm-build
 **/.venv
 **/.venv.*
 
