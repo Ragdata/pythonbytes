@@ -1,5 +1,5 @@
 [project]
-name = "pythonbites"
+name = "pythonbytes"
 version = "0.1.0"
 description = "A proprietary python library which I use in many of my projects"
 authors = [
