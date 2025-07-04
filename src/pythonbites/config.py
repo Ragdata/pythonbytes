@@ -39,7 +39,7 @@ def loadEnv():
 	Load environment variables from the env list.
 	"""
 
-	envfile = Path(os.environ.get('LOG_DIR', Path.home() / '.dotfiles' / 'logs')) / '.env'
+	envfile = Path(os.environ.get('CFG_DIR', '.env'))
 
 	if envfile.exists():
 		with open(envfile, 'r') as f:

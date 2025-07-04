@@ -1,7 +1,12 @@
-todo.txt
-.vscode
-.archive
-.backlog
-.backburn
+**/.vscode
+**/.archive
+**/.backlog
+**/.backburn
+**/.venv
+**/.venv.*
+
+**/__pycache__
+**/.pytest_cache
 
 **/.env
+**/todo.txt
