@@ -1,0 +1,19 @@
+[project]
+name = "pythonbites"
+version = "0.1.0"
+description = "A proprietary python library which I use in many of my projects"
+authors = [
+    {name = "Ragdata", email = "ragdata@ragdata.dev"},
+]
+dependencies = []
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true

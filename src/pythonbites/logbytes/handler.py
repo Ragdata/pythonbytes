@@ -17,7 +17,7 @@ import logging
 
 from typing import Optional
 
-from pythonbytes.config import *
+from config import *
 
 
 
