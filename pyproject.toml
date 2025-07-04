@@ -1,7 +1,7 @@
 [project]
 name = "pythonbytes"
 version = "0.1.0"
-description = "A proprietary python library which I use in many of my projects"
+description = "A modular proprietary python library that I use in many of my projects"
 authors = [
     {name = "Ragdata", email = "ragdata@ragdata.dev"},
 ]
