@@ -17,7 +17,7 @@ import logging
 
 from typing import Optional
 
-from config import *
+from pythonbytes.config import *
 
 
 
@@ -162,7 +162,7 @@ class FileHandler(StreamHandler):
 		self._instances[name] = Handler.__init__(self, name, logging.NOTSET)
 
 
-class _StderrHandler(StreamHandler):
+class StdErrHandler(StreamHandler):
 	"""
 	A custom stderr handler class extending StreamHandler for logging to stderr.
 	"""

@@ -15,8 +15,8 @@ import logging
 
 from typing import Optional
 
-from config import *
-from logbytes.handler import *
+from pythonbytes.config import *
+from pythonbytes.logbytes.handler import *
 
 
 #---------------------------------------------------------------------------
